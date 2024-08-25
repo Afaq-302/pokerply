@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure body takes up the full height */
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 375px;
+  min-height: 100vh;
+  /* width: 375px; */
+  /* height: 800px; */
+  margin: 0 auto;
+  background-color: rgb(89, 89, 163);
+  overflow: hidden;
+  background: linear-gradient(236deg, #1b2c5c 18%, #040e2b 44%, #1b2c5c 95%);
+
+  padding: 0 16px; /* Default padding */
+}
+
+@media (max-width: 640px) {
+  .app-wrapper {
+    max-width: 100%; /* Allow full width for smaller screens */
+  }
+  .popup-fitscreen {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+}
+/* iPhone 15, 14, 13, 12, 11, and Pro Max variants */
+@media (min-device-width: 390px) and (max-device-width: 430px) and (orientation: portrait) {
+  .app-wrapper {
+    max-width: 390px; /* Adjust for iPhone models */
+  }
+  .popup-fitscreen {
+    max-width: 390px; /* Match width to the device */
+  }
+}
+/* iPhone 15, 14, 13, 12, 11 Pro Max variants (landscape) */
+@media (min-device-width: 844px) and (max-device-width: 926px) and (orientation: landscape) {
+  .app-wrapper {
+    max-width: 844px; /* Adjust for landscape mode */
+    padding: 0 30px; /* Adjust padding for landscape */
+  }
+  .popup-fitscreen {
+    max-width: 844px; /* Match width to the device */
+  }
+}
+/* Media Query for screens between 375px and 480px */
+@media (min-width: 375px) and (max-width: 480px) {
+  .app-wrapper {
+    max-width: 100%; /* Use full width */
+  }
+  .popup-fitscreen {
+    max-width: 100%; /* Match popup width to screen width */
+  }
+}
+
+.popup-fitscreen {
+  @apply absolute mx-auto w-full bottom-0 left-[50%];
+}
+
+/* Hide the scrollbar while still allowing scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.gray-gradient {
+  background-image: linear-gradient(268deg, #314472, #253250);
+}
+
+.orange-gradient {
+  background-image: linear-gradient(135deg, #f3d53d, #e5881b);
+}
+
+.orange-gradient-text {
+  background: linear-gradient(to bottom, #f3d53d, #e5881b);
+}
+
+.popup-dark-blue-gradient {
+  background: linear-gradient(191deg, #05102c 50%, #111d41 100%);
+}
+
+.blue-drop-shadow {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+}
+/* CSS */
+.dark-blue-gradient {
+  background-image: linear-gradient(to bottom, #27385e 0%, #202737 100%);
+}
+
+.image-shadow {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.table-inner-orange-shadow {
+  box-shadow: inset 0px 0px 100px 0px rgba(229, 136, 27, 0.2),
+    /* First inner shadow */ inset 10px 10px 20px rgba(0, 0, 0, 0.45); /* Second inner shadow */
+}
+
+.orange-btn-md {
+  position: relative; /* Required for pseudo-element positioning */
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif; /* Montserrat font */
+  z-index: 2;
+  border-radius: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #032b44; /* Blue background color */
+}
+
+.orange-btn-md::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #f3d53d, #e5881b); /* Golden gradient */
+  border-radius: 18px; /* Match button's border-radius */
+  padding: 1.2px; /* Thickness of the border */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.orange-gradient-btn {
+  background: -webkit-linear-gradient(#f3d53d, #e5881b);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rounded-gray-bg {
+  @apply text-[12px] bg-white py-1.5 bg-opacity-10 relative inline-flex items-center;
+  /* Space for the dot */
+}
+
+.green-dot::before {
+  @apply content-[""] absolute w-[5px] h-[5px] bg-[#32cd32] rounded-[50%] left-[8px];
+}
+
+/* GAMEPLAY PAGE CSS  */
+
+.notch {
+  @apply w-[30px] h-[24px] p-2 absolute top-[93%] left-[56%] rounded-br-xl bg-[#040e2b] bg-opacity-70 backdrop-blur-[12px] z-[10] rotate-0;
+  clip-path: polygon(
+    51% 60%,
+    100% 61%,
+    90% 78%,
+    78% 90%,
+    50% 95%,
+    20% 89%,
+    6% 75%,
+    0 60%
+  );
+}
+
+/* SLIDERRR */
+.slider {
+  appearance: none; /* removes browser-specific styling */
+  width: 160px; /* width of slider */
+  height: 11px; /* height of slider */
+  background: linear-gradient(to right, #f3d53d, #e5881b);
+  background-size: 50% 100%; /* initial background size */
+  background-repeat: no-repeat;
+  background-color: #253250; /* unfilled area color */
+  outline: none; /* remove outline */
+  border-radius: 50px; /* round corners */
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none; /* removes browser-specific styling */
+  width: 16px; /* handle width */
+  height: 16px; /* handle height */
+  border-radius: 50%; /* make it circular */
+  background: linear-gradient(to right, #f3d53d, #e5881b);
+  cursor: pointer; /* cursor on hover */
+}
+
+/* For more than 6 players */
+.tables div:nth-child(even) {
+  display: flex;
+  justify-content: end;
+}
+
+.tables div:nth-child(1),
+.tables div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.tables div:last-child:nth-child(odd) {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  grid-column: span 2;
+}
+
+/* For 6 players */
+/* General rule for all odd children */
+/* .tables div:nth-child(odd) {
+  display: flex;
+  justify-content: end;
+}
+
+.tables div:nth-child(odd):first-child {
+  display: flex;
+  justify-content: center;
+}
+
+.tables div:nth-child(even):last-child {
+  display: flex;
+  justify-content: center;
+  align-self: end;
+}
+
+.tables div:last-child:nth-child(odd) {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  grid-column: span 2;
+}
+
+.tables div:nth-child(1),
+.tables div:nth-last-child(1) {
+  grid-column: span 2;
+} */
