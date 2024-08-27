@@ -14,9 +14,9 @@ import Tickets from "../assets/icons/tickets.png";
 import More_logo from "../assets/icons/more.png";
 
 import Cash from "@/components/Cash";
-// import Free from "@/components/Free";
-// import Tourneys from "@/components/Tourneys";
-// import More from "@/components/More";
+import Free from "@/components/Free";
+import Tourneys from "@/components/Tourneys";
+import More from "@/components/More";
 
 import HistoryPopup from "@/components/HistoryPopup";
 import AffiliatePopup from "@/components/AffiliatePopup";
@@ -322,9 +322,9 @@ const Home = () => {
 
       {/* <div className="h-[220px] overflow-auto hide-scrollbar mt-3"> */}
       {selectedGame === "cash" && <Cash />}
-      {/* {selectedGame === "free" && <Free />} */}
-      {/* {selectedGame === "tourneys" && <Tourneys />} */}
-      {/* {selectedGame === "more" && <More onClick={handleAffiliateClick} />}  */}
+      {selectedGame === "free" && <Free />}
+      {selectedGame === "tourneys" && <Tourneys />}
+      {selectedGame === "more" && <More onClick={handleAffiliateClick} />}
 
       {/* </div> */}
       <div ref={popupsRef}>

@@ -73,8 +73,3 @@ yarn-error.log*
 next-env.d.ts
 
 # Ignore specific folders and files
-/src/components/Gameplay/
-/src/app/gameplay/
-/src/components/Free.js
-/src/components/More.js
-/src/components/Tourneys.js
