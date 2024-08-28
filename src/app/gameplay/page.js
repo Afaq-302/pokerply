@@ -27,6 +27,9 @@ import Settings from "@/components/Gameplay/Settings";
 import BuyChips from "@/components/Gameplay/BuyChips";
 import RecentPopup from "@/components/Gameplay/RecentPopup";
 
+import FoldCall from "@/components/Gameplay/FoldCallRaiseCheck";
+import BackRaise from "@/components/Gameplay/BackRaise";
+
 export default function Gameplay() {
   const [isEmoji, setIsEmoji] = useState(false);
   const [isBuyInPopup, setIsBuyInPopup] = useState(false);
@@ -34,6 +37,8 @@ export default function Gameplay() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isBuyChipsOpen, setIsBuyChipsOpen] = useState(false);
   const [isRecentOpen, setIsRecentOpen] = useState(false);
+  const [isFoldCall, setIsFoldCall] = useState(false);
+  const [isBackRaise, setIsBackRaise] = useState(false);
 
   const isAnyPopupOpen =
     isEmoji ||
@@ -41,7 +46,9 @@ export default function Gameplay() {
     isChatOpen ||
     isSettingsOpen ||
     isBuyChipsOpen ||
-    isRecentOpen;
+    isRecentOpen ||
+    isFoldCall ||
+    isBackRaise;
 
   const handleBuyInPopupClose = () => {
     setIsBuyInPopup(false);
@@ -61,18 +68,14 @@ export default function Gameplay() {
   const handleEmojiClose = () => {
     setIsEmoji(false);
   };
+  const handleFoldCallClose = () => {
+    setIsFoldCall(false);
+  };
+  const handleBackRaiseClose = () => {
+    setIsBackRaise(false);
+  };
 
-  const players = [
-    "Player 1",
-    "Player 2",
-    "Player 3",
-    "Player 4",
-    "Player 5",
-    "Player 6",
-    "Player 7",
-    "Player 8",
-    "Player 9",
-  ];
+  const players = ["Player 1", "Player 2"];
   return (
     <>
       <section
@@ -204,7 +207,9 @@ export default function Gameplay() {
       <BuyChips isVisible={isBuyChipsOpen} handleClose={handleBuyChipsClose} />
       <Chats isVisible={isChatOpen} handleClose={handleChatClose} />
       <Settings isVisible={isSettingsOpen} />
-      {<EmojisPopup isVisible={isEmoji} handleClose={handleEmojiClose} />}
+      <EmojisPopup isVisible={isEmoji} handleClose={handleEmojiClose} />
+      <FoldCall isVisible={isFoldCall} handleClose={handleFoldCallClose} />
+      <BackRaise isVisible={isBackRaise} handleClose={handleBackRaiseClose} />
     </>
   );
 }

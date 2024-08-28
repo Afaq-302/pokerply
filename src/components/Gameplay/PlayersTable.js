@@ -71,17 +71,25 @@ const PlayersTable = ({ players }) => {
           )}
           {players.length === 4 && (
             <>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-                <PlayerCard playerName={"Player 4"} right={true} fold={false} />
+              <div className=" absolute left-[-60px] bottom-[20%]">
+                <PlayerCard playerName={"Player 1"} right={true} fold={false} />
               </div>
-              <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2">
-                <PlayerCard playerName={"You"} right={false} fold={false} />
+              <div className=" absolute left-[-60px] top-[10%]">
+                <PlayerCard playerName={"Player 2"} right={true} fold={false} />
               </div>
-              <div className="absolute left-[-50px] top-[70%] transform -translate-y-1/2">
-                <PlayerCard playerName={"Player 4"} right={true} fold={false} />
+              <div className="absolute right-[-60px] top-[10%]">
+                <PlayerCard
+                  playerName={"Player 3"}
+                  right={false}
+                  fold={false}
+                />
               </div>
-              <div className="absolute right-[-50px] top-[70%] transform -translate-y-1/2">
-                <PlayerCard playerName={"You"} right={false} fold={false} />
+              <div className="absolute right-[-60px] bottom-[20%]">
+                <PlayerCard
+                  playerName={"Player 4"}
+                  right={false}
+                  fold={false}
+                />
               </div>
             </>
           )}
