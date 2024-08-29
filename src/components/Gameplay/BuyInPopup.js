@@ -5,9 +5,19 @@ import Image from "next/image";
 import cross from "../../assets/icons/cross.svg";
 import ToggleButton from "../ChildComponents/ToggleButton";
 
-function BuyInPopup({ isVisible, handleClose }) {
+function BuyInPopup({ isVisible, handleClose, setSitBtn }) {
   const [isChecked, setIsChecked] = useState(true);
+  const [inputValue, setInputValue] = useState("");
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const handleMinClick = () => {
+    setInputValue(10);
+  };
+  const handleMaxClick = () => {
+    setInputValue(30);
+  };
   return (
     <>
       <div
@@ -41,14 +51,23 @@ function BuyInPopup({ isVisible, handleClose }) {
         </div>
 
         <div className="flex justify-between gray-gradient py-4 w-full px-4 rounded-[15px]">
-          <input type="text" className="bg-transparent outline-none w-full" />
+          <input
+            type="text"
+            className="bg-transparent outline-none w-full"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
 
           <div className="flex">
-            <div className="rounded-gray-bg px-2.5 py-1 mr-2 rounded-[30px]">
-              <span className=" font-semibold">MIN</span>
+            <div className="rounded-gray-bg px-2.5 py-1 mr-2 rounded-[30px] cursor-pointer">
+              <span onClick={handleMinClick} className=" font-semibold">
+                MIN
+              </span>
             </div>
-            <div className="rounded-gray-bg px-2.5 py-1  rounded-[30px]">
-              <span className=" font-semibold">MAX</span>
+            <div className="rounded-gray-bg px-2.5 py-1  rounded-[30px] cursor-pointer">
+              <span onClick={handleMaxClick} className=" font-semibold">
+                MAX
+              </span>
             </div>
           </div>
         </div>
@@ -60,7 +79,13 @@ function BuyInPopup({ isVisible, handleClose }) {
           <ToggleButton isOpen={false} />
         </div>
 
-        <div className="my-4">
+        <div
+          className="my-4"
+          onClick={() => {
+            setSitBtn(true);
+            handleClose();
+          }}
+        >
           <div className="orange-btn-md py-[10px] dark-blue-gradient text-center">
             <button className="orange-gradient-btn text-[16px] font-bold">
               TAKE A SEAT

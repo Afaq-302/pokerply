@@ -27,11 +27,13 @@ const PlayerCard = ({ playerName, right, fold }) => {
                   src={Golden_Card}
                   width={30}
                   className="blue-drop-shadow"
+                  alt="golden-button"
                 />
                 <Image
                   src={Golden_Card}
                   width={30}
                   className="ml-[-8px] blue-drop-shadow"
+                  alt="golden-button"
                 />
               </>
             )}
@@ -65,11 +67,17 @@ const PlayerCard = ({ playerName, right, fold }) => {
               </div>
             ) : (
               <>
-                <Image src={Spades_2} width={30} className="blue-drop-shadow" />
+                <Image
+                  src={Spades_2}
+                  width={30}
+                  className="blue-drop-shadow"
+                  alt="spades-A"
+                />
                 <Image
                   src={Heart_A}
                   width={30}
                   className="ml-[-8px] blue-drop-shadow"
+                  alt="heart-A"
                 />
               </>
             )}

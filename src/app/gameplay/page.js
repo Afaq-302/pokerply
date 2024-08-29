@@ -40,6 +40,8 @@ export default function Gameplay() {
   const [isFoldCall, setIsFoldCall] = useState(false);
   const [isBackRaise, setIsBackRaise] = useState(false);
 
+  const [sitBtn, setSitBtn] = useState(false);
+
   const isAnyPopupOpen =
     isEmoji ||
     isBuyInPopup ||
@@ -156,16 +158,16 @@ export default function Gameplay() {
           </div>
 
           <div className="relative my-10 mx-auto w-[287px] h-[470px]">
-            <PlayersTable players={players} />
-            {players.length === 6 ||
-              (players.length === 8 ? (
-                <button className="relative bottom-[-105%] left-[34%] px-10 py-1.5 text-[12px] font-extralight rounded-[10px] bg-black border-[1px] border-white/40  text-white/60">
-                  SIT
-                </button>
-              ) : (
-                ""
-              ))}
-            {/* Add more content here, which will be placed over the background */}
+            <PlayersTable players={players} sitBtn={sitBtn} />
+            {!sitBtn && (
+              <button
+                onClick={() => setIsBuyInPopup((prevState) => !prevState)}
+                className="absolute bottom-[-50px] left-[46%] transform -translate-x-1/2 px-10 py-1.5 text-[12px] font-extralight rounded-[10px] bg-black border-[1px] border-white/40  text-white/60"
+              >
+                {" "}
+                SIT{" "}
+              </button>
+            )}
           </div>
         </div>
 
@@ -202,6 +204,7 @@ export default function Gameplay() {
       <BuyInPopup
         isVisible={isBuyInPopup}
         handleClose={handleBuyInPopupClose}
+        setSitBtn={setSitBtn}
       />
       <RecentPopup isVisible={isRecentOpen} handleClose={handleRecentClose} />
       <BuyChips isVisible={isBuyChipsOpen} handleClose={handleBuyChipsClose} />

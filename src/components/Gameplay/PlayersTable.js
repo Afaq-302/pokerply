@@ -11,14 +11,14 @@ import Diamond_A from "../../assets/icons/cards/diamonds/diamonda.svg";
 import PlayerCard from "./PlayerCard";
 import GoldenCoinValue from "./GoldenCoinValue";
 
-const PlayersTable = ({ players }) => {
+const PlayersTable = ({ players, sitBtn }) => {
   return (
     <>
       <div>
         <div className="absolute inset-0 flex items-center justify-center rounded-[128px] gray-gradient blue-drop-shadow">
           <div className="w-[260px] h-[93%] relative table-inner-orange-shadow border-2 border-yellow-400 rounded-[113px] flex items-center justify-center">
             <div className="flex flex-col items-center">
-              <GoldenCoinValue value={1.23} />
+              {sitBtn && <GoldenCoinValue value={1.23} />}
               <Image
                 src={Bg_Heart}
                 alt="blue-heart-logo"
@@ -64,11 +64,15 @@ const PlayersTable = ({ players }) => {
               <div className="absolute top-[-20px] left-1/2 transform -translate-x-1/2">
                 <PlayerCard playerName={"Player 4"} right={true} fold={false} />
               </div>
-              <div className="absolute bottom-[-50px] left-[46%] transform -translate-x-1/2">
-                <PlayerCard playerName={"You"} right={false} fold={false} />
-              </div>
+
+              {sitBtn && (
+                <div className="absolute bottom-[-50px] left-[46%] transform -translate-x-1/2">
+                  <PlayerCard playerName={"You"} right={false} fold={false} />
+                </div>
+              )}
             </>
           )}
+
           {players.length === 4 && (
             <>
               <div className=" absolute left-[-60px] bottom-[20%]">
@@ -138,24 +142,6 @@ const PlayersTable = ({ players }) => {
                   <PlayerCard playerName={"You"} right={false} fold={false} />
                 </div>
               </div>
-              {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-              {players[0]}
-            </div>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-              {players[1]}
-            </div>
-            <div className="absolute left-0 top-1/4 transform -translate-y-1/2">
-              {players[2]}
-            </div>
-            <div className="absolute left-0 bottom-1/4 transform translate-y-1/2">
-              {players[3]}
-            </div>
-            <div className="absolute right-0 top-1/4 transform -translate-y-1/2">
-              {players[4]}
-            </div>
-            <div className="absolute right-0 bottom-1/4 transform translate-y-1/2">
-              {players[5]}
-            </div> */}
             </>
           )}
           {players.length === 8 && (
