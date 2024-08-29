@@ -10,6 +10,12 @@ function Free() {
     setIsChecked(!isChecked);
   };
 
+  const [active, setActive] = useState("High");
+
+  const handleClick = (item) => {
+    setActive(item);
+  };
+
   return (
     <>
       {/* 5th SECTION */}
@@ -34,11 +40,65 @@ function Free() {
             </span>
           </div>
         </div>
-        <div className="">All</div>
-        <div className="">Low</div>
-        <div className="">Mid</div>
-        <div className="rounded-gray-bg px-2.5 py-1 rounded-2xl">
-          <span className="orange-gradient-btn font-semibold">High</span>
+
+        <div
+          onClick={() => handleClick("All")}
+          className={`cursor-pointer ${
+            active === "All" ? "rounded-gray-bg " : ""
+          } px-2.5 py-1 rounded-2xl`}
+        >
+          <span
+            className={`${
+              active === "All" ? "orange-gradient-btn " : ""
+            }  font-medium`}
+          >
+            All
+          </span>
+        </div>
+
+        <div
+          onClick={() => handleClick("Low")}
+          className={`cursor-pointer ${
+            active === "Low" ? "rounded-gray-bg " : ""
+          } px-2.5 py-1 rounded-2xl`}
+        >
+          <span
+            className={`${
+              active === "Low" ? "orange-gradient-btn " : ""
+            }  font-medium`}
+          >
+            Low
+          </span>
+        </div>
+
+        <div
+          onClick={() => handleClick("Mid")}
+          className={`cursor-pointer ${
+            active === "Mid" ? "rounded-gray-bg " : ""
+          } px-2.5 py-1 rounded-2xl`}
+        >
+          <span
+            className={`${
+              active === "Mid" ? "orange-gradient-btn " : ""
+            }  font-medium`}
+          >
+            Mid
+          </span>
+        </div>
+
+        <div
+          onClick={() => handleClick("High")}
+          className={`cursor-pointer ${
+            active === "High" ? "rounded-gray-bg " : ""
+          } px-2.5 py-1 rounded-2xl`}
+        >
+          <span
+            className={`${
+              active === "High" ? "orange-gradient-btn " : ""
+            }  font-medium`}
+          >
+            High
+          </span>
         </div>
         <ToggleButton isOpen={true} />
       </div>

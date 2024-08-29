@@ -147,7 +147,7 @@ html {
 }
 
 .rounded-gray-bg {
-  @apply text-[12px] bg-white py-1.5 bg-opacity-10 relative inline-flex items-center;
+  @apply bg-white py-1.5 bg-opacity-10 relative inline-flex items-center;
   /* Space for the dot */
 }
 
