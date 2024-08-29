@@ -12,7 +12,7 @@ import RightArrowCircle from "./ChildComponents/RightArrowCircle";
 function More({ onClick }) {
   return (
     <>
-      <div className="mt-6 overflow-auto hide-scrollbar h-[28vh]">
+      <div className="mt-6 overflow-auto hide-scrollbar h-[36vh]">
         <div className="flex items-center justify-between my-2.5">
           <div className="flex">
             <div className="p-3 rounded-full gray-gradient blue-drop-shadow">

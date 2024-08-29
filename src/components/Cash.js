@@ -11,6 +11,27 @@ function Cash() {
   const handleToggle = () => {
     setIsChecked(!isChecked);
   };
+
+  const gameDetails = [
+    {
+      title: "Blinds",
+      details: ["$1.00", "$2.00"],
+    },
+    {
+      title: "Buy-in",
+      details: ["$100.00", "$200.00"],
+    },
+    {
+      title: "Players",
+      details: ["0/4"],
+    },
+    {
+      title: "Button",
+      link: "/gameplay",
+      buttonText: "SIT",
+    },
+  ];
+
   return (
     <>
       {/* 5th SECTION */}
@@ -45,6 +66,14 @@ function Cash() {
       </div>
 
       <div className=" overflow-auto hide-scrollbar mt-3 h-[31vh]">
+        {/* {gameDetails.map( (game,index) => {
+          return (
+            <>
+              <section className="relative px-6 py-3 bg-gray-300 h-[100px] gray-gradient mt-2 rounded-[20px] border-l-[26px] border-l-[#00A1FF]"></section>
+            </>
+          );
+        })} */}
+
         <section className="relative px-6 py-3 bg-gray-300 h-[100px] gray-gradient mt-2 rounded-[20px] border-l-[26px] border-l-[#00A1FF]">
           <span className="absolute top-[40%] left-[-34px] transform  -rotate-90 font-medium">
             HIGH

@@ -17,11 +17,11 @@ html {
 }
 
 .app-wrapper {
-  /* width: 100%; */
-  /* max-width: 375px; */
-  /* min-height: 100vh; */
-  width: 375px;
-  height: 800px;
+  width: 100%;
+  max-width: 375px;
+  min-height: 100vh;
+  /* width: 375px; */
+  /* height: 800px; */
   margin: 0 auto;
   background-color: rgb(89, 89, 163);
   overflow: hidden;
